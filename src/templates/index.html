@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+    <title>Linkutter - Your URL shortener !</title>
+</head>
+<body>
+    <div class="main">
+        <form action="/" method="POST">
+            <h1>Shorten a URL</h1>
+            
+            {% if error %}
+                <p class="error">{{error}}</p>
+            {% endif %}
+
+            {% if success %}
+                <p class="success"><b>SUCCESS!</b><br>Your link is: <a href="{{success}}">{{success}}</a></p>
+            {% endif %}
+            
+            <p for="url">Complete URL</p>
+            <input type="text" name="url" id="url" placeholder="http://linkutter.eu" required>
+            <input type="submit" value="Linkut!">
+        </form>
+    </div>
+</body>
+</html>
